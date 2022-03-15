@@ -16,6 +16,8 @@ public class Area {
 
         if (radius < 0) {
             System.out.println("Invalid. Enter a positive number.");
+//        } else if (Double.isNaN(radius)){
+//            System.out.println("Invalid. Enter a number.");
         } else {
             System.out.println("The area of the circle is " + Circle.getArea(radius));
         }
