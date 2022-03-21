@@ -5,40 +5,44 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class HashMapPractice {
-    public static void main(String[] args) {
+
+    public static void main (String[] args) {
+
         HashMap<Integer, String> students = new HashMap<>();
         Scanner input = new Scanner(System.in);
-        Integer id;
+        String studentName;
+        System.out.println ("Enter your student's name (or ENTER to finish): ");
 
-        System.out.println("Enter your students (or ENTER to finish):");
-
-        // Get student names and grades
         do {
+            System.out.print("Student Name: ");
+            studentName = input.nextLine();
 
-            System.out.print("ID: ");
-            id = input.nextInt();
+            if (!studentName.equals ("")) {
 
-            if (!id.equals("")) {
-                System.out.print("Name: ");
-                String name = input.nextLine();
-                students.put(id, name);
+                System.out.print ("Student ID Number: ");
+                int idNumber = input.nextInt();
+                students.put(idNumber, studentName);
 
-                // Read in the newline before looping back
                 input.nextLine();
+
             }
 
-        } while(!id.equals(""));
+        } while (!studentName.equals (""));
 
-        // Print class roster
-        System.out.println("\nClass roster:");
-//        String sum;
+        input.close();
 
-        for (Map.Entry<Integer, String> student : students.entrySet()) {
-            System.out.println(student.getKey() + " (" + student.getValue() + ")");
-//            sum += student.getValue();
+        printStudents(students);
+
+    }
+
+    static void printStudents (HashMap<Integer, String> students) {
+
+        for (Map.Entry<Integer, String> student: students.entrySet()) {
+
+            System.out.println (student.getValue() + " (" + student.getKey() + ")");
+
         }
 
-//        double avg = sum / students.size();
-//        System.out.println("Average grade: " + avg);
     }
+
 }
