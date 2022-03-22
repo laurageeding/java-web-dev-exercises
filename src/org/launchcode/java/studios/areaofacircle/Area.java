@@ -5,21 +5,37 @@ import java.util.Scanner;
 public class Area {
     public static void main(String[] args) {
         double radius;
-        double area;
+        Scanner input = new Scanner(System.in);
 
-        Scanner inputRadius = new Scanner(System.in);
         System.out.println("Enter a radius");
-        radius = inputRadius.nextDouble();
-        inputRadius.close();
+        radius = input.nextDouble();
 
-        //area = 3.14 * radius * radius;
+        do {
+            System.out.println("Please enter a valid number:");
 
-        if (radius < 0) {
-            System.out.println("Invalid. Enter a positive number.");
-//        } else if (Double.isNaN(radius)){
-//            System.out.println("Invalid. Enter a number.");
-        } else {
-            System.out.println("The area of the circle is " + Circle.getArea(radius));
+            while(!input.hasNextDouble()) {
+                System.out.println("WRONG");
+                //radius = input.nextDouble();
+                input.next();
+            }
+        } while(radius <= 0);
+
+//        while(!input.hasNextDouble()) {
+//            System.out.println("Please enter valid number:");
+//            input.next();
+//        }
+//
+//        radius = input.nextDouble();
+//
+//        while(radius <= 0){
+//            System.out.println("Please enter a valid number:");
+//            input.next();
+//        }
+//
+//        radius = input.nextDouble();
+
+        double area = Circle.getArea(radius);
+        System.out.println("The area of the circle is " + area);
+        input.close();
         }
     }
-}
