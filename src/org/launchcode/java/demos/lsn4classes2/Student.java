@@ -8,7 +8,7 @@ public class Student {
     private int numberOfCredits = 0;
     private double gpa = 0.0;
 
-    public Student (String name, int studentId, int numberOfCredits, double gpa) {
+    public Student(String name, int studentId, int numberOfCredits, double gpa) {
         this.name = name;
         this.studentId = studentId;
         this.numberOfCredits = numberOfCredits;
@@ -29,7 +29,7 @@ public class Student {
     }
 
 
-     //TODO: Uncomment and complete the getGradeLevel method here:
+    //TODO: Uncomment and complete the getGradeLevel method here:
     public String getGradeLevel() {
         if (numberOfCredits < 30) {
             return "Freshman";
@@ -44,13 +44,14 @@ public class Student {
 
     // TODO: Complete the addGrade method.
     public void addGrade(int courseCredits, double grade) {
-//        double currentQualityScore = gpa * numberOfCredits;
-//        for (int i = 0; i < 10; i++) {
-//            double totalQualityScore += currentQualityScore;
+        double currentQualityScore = gpa * numberOfCredits;
+        double qualityScore = courseCredits * grade;
+        double totalQualityScore = 0;
+        for (int i = 0; i < 10; i++) {
+            totalQualityScore += qualityScore;
         }
-
-       // double gpa = totalQualityScore / numberOfCredits;
-
+        double gpa = totalQualityScore / numberOfCredits;
+    }
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
     //  than just the class fields.
@@ -91,7 +92,7 @@ public class Student {
     }
 
     public static void main(String[] args) {
-        Student sally = new Student("Sally",1,1,4.0);
+        Student sally = new Student("Sally", 1, 1, 4.0);
         System.out.println("The Student class works! " + sally.getName() + " is a student!");
         System.out.println(sally);
         sally.addGrade(12, 3.5);
